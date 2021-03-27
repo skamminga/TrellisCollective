@@ -7,7 +7,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
   <title>
-    Trelli's Collective</title>
+    Trellis Collective</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -49,14 +49,72 @@
       <a class="button" href="mailto:trellis902@gmail.com">Email</a>
       <a class="button" href="about.html">About Us</a>
     </div>
-    <img src="images/index_big.JPG" alt="Image for Index Page" />
-
+    <div class="carousel">
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img src="images/carousel/b.jpg" alt="Image for Index Page" />
+        </div>
+        <div class="mySlides fade">
+          <img src="images/carousel/f.jpg" alt="Image for Index Page" />
+        </div>
+        <div class="mySlides fade">
+          <img src="images/carousel/h.jpg" alt="Image for Index Page" />
+        </div>
+        <div class="mySlides fade">
+          <img src="images/carousel/l.JPG" alt="Image for Index Page" />
+        </div>
+        <a id="prev">&#10094;</a>
+        <a id="next">&#10095;</a>
+      </div>
+    </div>
   </div>
-
 
 
   <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
+<script>
+  var slideIndex = 1
+  var prevButton = document.getElementById("prev")
+  var nextButton = document.getElementById("next")
+
+  prevButton.addEventListener('click', function () {
+    plusSlides(-1)
+  })
+  nextButton.addEventListener('click', function () {
+    plusSlides(1)
+  })
+
+  showSlides(slideIndex)
+
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+
+  // Thumbnail image controls
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+  }
+
+</script>
 
 </html>
